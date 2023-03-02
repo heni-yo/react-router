@@ -18,7 +18,7 @@ export default function Products() {
             >
                 <TextField id="outlined-basic" label="research products" variant="filled" />
             </Box>
-            <nav className="flex sm:justify-center space-x-4 bg-slate-500">
+            <nav className="flex sm:justify-center space-x-4 bg-slate-500 ">
                 <Link className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900" to="feature">Featured</Link>
                 <Link className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900" to="new">New</Link>
             </nav>

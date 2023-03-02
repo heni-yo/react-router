@@ -8,6 +8,9 @@ import OrderSummary from './components/orderSummary';
 import Products from './components/Products';
 import NewProducts from './components/NewProducts';
 import FeaturedProducts from './components/FeaturedProducts';
+import Users from './components/Users';
+import UserDetails from './components/UserDetails';
+import Admin from './components/Admin';
 
 export default function App() {
 
@@ -24,7 +27,13 @@ export default function App() {
             <Route path='feature' element={<FeaturedProducts />} />
             <Route path='new' element={<NewProducts />} />
         </Route>
+        <Route path='/users' element={<Users />}>
+  
+            <Route path=':userId' element={<UserDetails />} />
+            <Route path='admin' element={<Admin />} />
+        </Route>
         <Route path='*' element={<h1>page not found</h1>} />
+        
       </Routes>
     </Router>
   )
