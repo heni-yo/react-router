@@ -8,7 +8,7 @@ const navLinkList = {};
 
 const pages = [
   <NavLink to="/" style={navBarStyles} >
-    <img src="../public/images/logo.svg" alt="shaif's cuisine" />
+    <img src="./images/logo.svg" alt="shaif's cuisine" />
   </NavLink>,
   <NavLink  to="/" style={navBarStyles}>
     Home
@@ -33,7 +33,7 @@ function Navbar() {
       <div className="container">
         <div className="nav__wrapper">
           <a href="./index.html" className="logo">
-            <img src="../public/images/logo.svg" alt="shaif's cuisine" />
+            <img src="./images/logo.svg" alt="shaif's cuisine" />
           </a>
           <nav>
             <div className="nav__icon">
