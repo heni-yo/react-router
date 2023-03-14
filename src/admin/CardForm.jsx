@@ -1,20 +1,30 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { card } from "./admin";
 
 export default function CardForm() {
   const dispatch = useDispatch();
 
-  const intialise = { img: null, title: "", price: "", stars: null };
-
-  const [formData, setFormData] = React.useState(intialise);
-
+  const intialise = { img: '', title: "", price: "", stars: '' };
+  
+  const [formData, setFormData] = useState(intialise);
   function handleChange(event) {
-    const {name, value, type} = event.target
+    const { name, value,files } = event.target;
+    if(files){
+      const reader = new FileReader();
+      reader.readAsDataURL(files[0]);
+      reader.addEventListener("load", () => {
+        localStorage.setItem("thumbnail", reader.result);
+        setFormData((prev)=>({
+          ...prev,
+          [name]:reader.result
+        }))
+      });
+    }
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
-        [name]: type === "file" ? value.files[0] : value
+        [name]:  value,
       };
     });
   }
@@ -25,12 +35,13 @@ export default function CardForm() {
   }
   return (
     <form onSubmit={handleSubmit}>
+      {formData.img && <img src={formData.img} alt="" />}
+      {formData.stars && <img src={formData.stars} alt="" />}
       <input
         type="file"
         placeholder="img src"
         onChange={handleChange}
         name="img"
-        value={formData.img}
       />
       <input
         type="text"
@@ -51,7 +62,6 @@ export default function CardForm() {
         placeholder="src stars"
         onChange={handleChange}
         name="stars"
-        value={formData.stars}
       />
 
       <button>Add plate</button>

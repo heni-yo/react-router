@@ -14,6 +14,7 @@ export default function MenuTop() {
         <div className="container">
           <h3 className="ourSpecials__title">Our Specials</h3>
           <div className="ourSpecials__wrapper">
+            {/* same */}
             <div className="ourSpecials__item">
               <div className="ourSpecials__item__img">
                 <img src="./images/food-3.png" alt="food img" />
@@ -28,6 +29,8 @@ export default function MenuTop() {
                 </div>
               </div>
             </div>
+              {/* same */}
+
             <div className="ourSpecials__item">
               <div className="ourSpecials__item__img">
                 <img src="./images/food-1.png" alt="food img" />
