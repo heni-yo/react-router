@@ -14,6 +14,7 @@ import  './about.css'
 import './components.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Jap from './admin/Jap';
 
 export default function App() {
   useEffect(()=>{
@@ -33,6 +34,7 @@ export default function App() {
       <Navbar/>
       
       <Routes>
+        <Route path='/admin' element={<Jap/>}/>
         <Route path='/' element={<Home/>} />
         <Route path='/menu' element={<Menu />} />
         <Route path='/about' element={<About />} />
