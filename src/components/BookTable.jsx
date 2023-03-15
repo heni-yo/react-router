@@ -68,7 +68,7 @@ export default function BookTable() {
             <label htmlFor="Placement">Placement</label>
             <select name="placement" id="Placement" value={formData.placement} onChange={handleChange}>
               <option value="" disabled >Choose</option>
-              <option value="outdoor">Outdoor</option>
+              <option value="">Outdoor</option>
               <option value="indoor">Indoor</option>
               <option value="rooftop">rooftop</option>
             </select>

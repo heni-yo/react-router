@@ -1,30 +1,33 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { card } from "./admin";
+import { useSelector } from "react-redux";
+
 
 export default function CardForm() {
   const dispatch = useDispatch();
+  const state = useSelector((state) => state.admin.test);
 
-  const intialise = { img: '', title: "", price: "", stars: '' };
-  
+  // const intialise = {category:"", Content:[{img: "", title: "", price: "", stars: ""}]};
+  const intialise = {img: "", title: "", price: "", stars: ""};
   const [formData, setFormData] = useState(intialise);
   function handleChange(event) {
-    const { name, value,files } = event.target;
-    if(files){
+    const { name, value, files } = event.target;
+    if (files) {
       const reader = new FileReader();
       reader.readAsDataURL(files[0]);
       reader.addEventListener("load", () => {
         localStorage.setItem("thumbnail", reader.result);
-        setFormData((prev)=>({
+        setFormData((prev) => ({
           ...prev,
-          [name]:reader.result
-        }))
+          [name]: reader.result,
+        }));
       });
     }
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
-        [name]:  value,
+        [name]: value,
       };
     });
   }
@@ -63,7 +66,18 @@ export default function CardForm() {
         onChange={handleChange}
         name="stars"
       />
+      <select
+        id="category"
+        onChange={handleChange}
+        name="category"
+        value={formData.category}
+      >
+        <option value="" disabled >Choose Category</option>
+        {state.map((props, i) => {
+        return <option key={i} value={props}> {props}</option>;
+      })}
 
+      </select>
       <button>Add plate</button>
     </form>
   );
