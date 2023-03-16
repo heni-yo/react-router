@@ -2,15 +2,26 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const adminSlice = createSlice({
   name: "admin",
-  initialState: { value: JSON.parse(localStorage.getItem("data")) || [],test: JSON.parse(localStorage.getItem("daata")) || [] },
+  initialState: { value: JSON.parse(localStorage.getItem("data")) || {} },
   reducers: {
     card: (state, action) => {
-      state.value.push(action.payload);
-      localStorage.setItem("data", JSON.stringify(state.value));
+      console.log(action.payload);
+      if (action.payload.category in state.value) {
+        const key = action.payload.category;
+        delete action.payload.category;
+        state.value[key].push(action.payload);
+        localStorage.setItem("data", JSON.stringify(state.value));
+      } else {
+        return;
+      }
     },
     category: (state, action) => {
-      state.test.push(action.payload)
-      localStorage.setItem("daata", JSON.stringify(state.test));
+      if (action.payload in state.value) {
+        return;
+      } else {
+        state.value[action.payload] = [];
+        localStorage.setItem("data", JSON.stringify(state.value));
+      }
     },
   },
 });
