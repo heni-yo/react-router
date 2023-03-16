@@ -15,6 +15,8 @@ import './components.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Jap from './admin/Jap';
+import { Provider } from "react-redux";
+import { store } from './admin/store';
 
 export default function App() {
   useEffect(()=>{
@@ -36,7 +38,7 @@ export default function App() {
       <Routes>
         <Route path='/admin' element={<Jap/>}/>
         <Route path='/' element={<Home/>} />
-        <Route path='/menu' element={<Menu />} />
+        <Route path='/menu' element={<Provider store={store}><Menu /></Provider>} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/bookTable' element={<BookTable />}/>

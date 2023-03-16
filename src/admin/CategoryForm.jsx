@@ -10,7 +10,6 @@ export default function CategoryForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
     reset,
   } = useForm();
 

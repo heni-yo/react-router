@@ -2,14 +2,14 @@ import React from "react";
 import { Provider } from "react-redux";
 import CardForm from "./CardForm";
 import { store } from "./store";
-import Display from "./Display"
 import CategoryForm from "./CategoryForm";
+import Menu from "../components/menu/Menu";
 
 function Jap() {
   return (
     <div>
       <Provider store={store}>
-        <Display />
+        <Menu/>
         <CategoryForm />
         <CardForm />
       </Provider>

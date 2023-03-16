@@ -53,7 +53,7 @@ export default function BookTable() {
             </div>
             <div className="form__group">
               <label htmlFor="table-Type">Table Type</label>
-              <select {...register("table-Type")} id="table-Type" required>
+              <select {...register("table-Type")} id="table-Type" defaultValue="" required>
                 <option value="" disabled>
                   Choose
                 </option>
@@ -75,7 +75,7 @@ export default function BookTable() {
             </div>
             <div className="form__group">
               <label htmlFor="Placement">Placement</label>
-              <select {...register("Placement")} id="Placement">
+              <select {...register("Placement")} id="Placement" defaultValue="">
                 <option value="" disabled>
                   Choose
                 </option>

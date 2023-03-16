@@ -1,18 +1,15 @@
 import React from "react";
-import DishItem from "./DishItem";
-import menuData from "./menuData";
-import MenuTop from "./MenuTop";
+import Categorys from "./Categorys";
+import { useSelector } from "react-redux";
 
 export default function Menu() {
-  const cards = menuData.map((item,index) => {
-    return <DishItem key={index} {...item} />;
+  const state = useSelector((state) => state.admin.value);
+  const category = Object.keys(state).map((props, index) => {
+    return <Categorys key={index} category={props}/>;
   });
   return (
     <div>
-      <MenuTop/>
-      {/* <!-- Top Dishes --> */}
-     {cards}
-   
+     {category}
     </div>
   );
 }
