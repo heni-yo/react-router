@@ -10,7 +10,7 @@ export default function Profile() {
       <div className="container">
         <h2 className="dishGrid__title">
           {statee.map((props, i) => {
-            return <p key={i}>category : {props}</p>;
+            return <p key={i}>category : {props.category}</p>;
           })}
         </h2>
         <div className="dishGrid__wrapper">
